@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "React App Electron Template",
+  "short_name": "Electronite POC",
+  "name": "Electronite POC App",
   "icons": [
     {
       "src": "favicon.ico",
