@@ -7,14 +7,14 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && cross-env NODE_ENV=development npm run electron-start\"",
+    "start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000/ && cross-env NODE_ENV=development npm run electronite-start\"",
     "remove-build-folders": "rm -rf dist && rm -rf build",
     "prebuild": "npm run remove-build-folders && npm run react-build && npm run build-main",
-    "build": "npm run electron-build",
-    "build-win": "npm run prebuild && npm run electron-build-win",
-    "electron-start": "electron .",
-    "electron-build": "electron-packager ./build --out=dist --icon=src/images/icon.icns",
-    "electron-build-win": "electron-packager ./build --out=dist --arch=all --icon=src/images/icon.ico",
+    "build": "npm run electronite-build",
+    "build-win": "npm run prebuild && npm run electronite-build-win",
+    "electronite-start": "electronite .",
+    "electronite-build": "electronite-packager ./build --out=dist --icon=src/images/icon.icns",
+    "electronite-build-win": "electronite-packager ./build --out=dist --arch=all --icon=src/images/icon.ico",
     "react-start": "craco start",
     "react-build": "craco build",
     "build-main": "webpack --config electron/webpack.config.js",
@@ -22,9 +22,6 @@
     "lint:fix": "eslint ./src --fix",
     "test": "eslint ./src && craco test --logHeapUsage --watchAll=false",
     "ci-test": "eslint ./src && craco test --max-old-space-size=8192 --maxWorkers=4 --logHeapUsage --coverage"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -61,9 +58,9 @@
     "concurrently": "^5.0.2",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.0",
-    "electron": "^7.1.10",
     "electron-devtools-installer": "^2.2.4",
-    "electron-packager": "^14.2.0",
+    "electronite": "^6.0.7",
+    "electronite-packager": "^15.0.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.1.2",
