@@ -15,6 +15,7 @@ module.exports = {
       plugins: [
         new CopyWebpackPlugin([
           { from: './package.json', to: 'package.json' },
+          { from: './src/locale', to: 'static/locale' },
         ]),
       ],
     },
