@@ -17,7 +17,7 @@
     "electronite-build-win": "electronite-packager ./build --out=dist --arch=all --icon=src/images/icon.ico",
     "react-start": "craco start",
     "react-build": "craco build",
-    "build-main": "webpack --config electron/webpack.config.js",
+    "build-main": "webpack --config electronite/webpack.config.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "test": "eslint ./src && craco test --logHeapUsage --watchAll=false",
