@@ -6,7 +6,6 @@
  *
  * This requires node 7 or higher.
  */
-
 const fs = require('fs-extra');
 const request = require('request');
 const requestPromise = require('request-promise');
