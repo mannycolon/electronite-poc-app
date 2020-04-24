@@ -7,7 +7,7 @@ const packager = require('electronite-packager');
 const change = require('gulp-change');
 const rimraf = require('rimraf');
 const ncp = require('ncp').ncp;
-const request = require('./scripts/request');
+// const request = require('./scripts/request');
 // const CrowdinApi = require('./scripts/CrowdinApi');
 
 function copy(src, dest) {
