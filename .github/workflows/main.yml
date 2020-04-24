@@ -33,6 +33,9 @@ jobs:
 #       env:
 #         GITHUB_CONTEXT: ${{ toJson(github) }}
 #       run: echo "$GITHUB_CONTEXT"
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.12.0'
     - name: Node version
       run: |
         node --version
@@ -144,7 +147,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
         with:
-          node-version: '8.16.1'
+          node-version: '10.12.0'
 
       - name: Node version
         run: |
