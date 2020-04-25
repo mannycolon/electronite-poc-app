@@ -8,7 +8,7 @@ const change = require('gulp-change');
 const rimraf = require('rimraf');
 const ncp = require('ncp').ncp;
 const request = require('./scripts/request');
-const CrowdinApi = require('./scripts/CrowdinApi');
+// const CrowdinApi = require('./scripts/CrowdinApi');
 
 function copy(src, dest) {
   return new Promise((resolve, reject) => {
@@ -41,25 +41,25 @@ const getBranchType = () => {
   return 'unknown';
 };
 
-gulp.task('crowdin', () => {
-  if (process.env.CROWDIN_API_KEY && process.env.CROWDIN_PROJECT) {
-    const api = new CrowdinApi({ apiKey: process.env.CROWDIN_API_KEY });
-    const files = { 'English-en_US.json': './src/locale/English-en_US.json' };
-    return api.updateFile(process.env.CROWDIN_PROJECT, files)
-      .then(function (result) {
-        if (result.success) {
-          console.log('Crowdin upload succeeded', result.files);
-        } else {
-          console.log(result);
-        }
-      })
-      .catch(function (err) {
-        console.log('Crowdin error', err);
-      });
-  } else {
-    console.log('Missing Crowdin environment vars. Skipping locale upload.');
-  }
-});
+// gulp.task('crowdin', () => {
+//   if (process.env.CROWDIN_API_KEY && process.env.CROWDIN_PROJECT) {
+//     const api = new CrowdinApi({ apiKey: process.env.CROWDIN_API_KEY });
+//     const files = { 'English-en_US.json': './src/locale/English-en_US.json' };
+//     return api.updateFile(process.env.CROWDIN_PROJECT, files)
+//       .then(function (result) {
+//         if (result.success) {
+//           console.log('Crowdin upload succeeded', result.files);
+//         } else {
+//           console.log(result);
+//         }
+//       })
+//       .catch(function (err) {
+//         console.log('Crowdin error', err);
+//       });
+//   } else {
+//     console.log('Missing Crowdin environment vars. Skipping locale upload.');
+//   }
+// });
 
 /**
  * set developer build properties
