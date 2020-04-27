@@ -345,6 +345,11 @@ gulp.task('release-win64', () => {
     throw new Error('The --out argument is required.');
   }
 
+  const dist = fs.readdirSync(BUILD_DIR);
+  console.log('====================================');
+  console.log('dist', dist);
+  console.log('====================================');
+
   const buildPath = BUILD_DIR + p.name + '-win32-x64/';
 
   if (!fs.existsSync(buildPath)) {
