@@ -27,18 +27,18 @@
 #endif
 #if Arch == "x86"
   #define GitExecutable "Git-" + GitVersion + "-32-bit.exe"
-  #define BuildPath RootPath + BuildDir + "translationCore-win32-ia32\*.*"
+  #define BuildPath RootPath + BuildDir + "electronite-poc-app-win32-ia32\*.*"
   #define GitInstaller "win32_git_installer.iss"
 #else
   #define GitExecutable "Git-" + GitVersion + "-64-bit.exe"
-  #define BuildPath RootPath + BuildDir + "translationCore-win32-x64\*.*"
+  #define BuildPath RootPath + BuildDir + "electronite-poc-app-win32-x64\*.*"
   #define GitInstaller "win64_git_installer.iss"
 #endif
 
-#define MyAppName "translationCore"
+#define MyAppName "electronite-poc-app"
 #define MyAppPublisher "Unfolding Word"
 #define MyAppURL "https://unfoldingword.org"
-#define MyAppExeName "translationCore.exe"
+#define MyAppExeName "electronite-poc-app.exe"
 #define MyLicenseFile RootPath + "LICENSE"
 
 [Setup]

@@ -550,7 +550,7 @@ gulp.task('release', done => {
     }
 
     // TRICKY: the iss script cannot take the .exe extension on the file name
-    let file = `translationCore-win-x${arch}-${p.version}.setup`;
+    let file = `electronite-poc-app-win-x${arch}-${p.version}.setup`;
     let destDir = `${RELEASE_DIR}win-x${arch}/`;
     mkdirp(destDir);
     let cmd = `${isccPath} scripts/win_installer.iss /DArch=${arch === '64'
@@ -611,7 +611,7 @@ gulp.task('release', done => {
             fs.existsSync(BUILD_DIR + p.name + '-darwin-x64/')) {
           promises.push(new Promise(function (os, resolve, reject) {
             let src = `out/${p.name}-darwin-x64`;
-            let name = `translationCore-macos-x64-${p.version}.dmg`;
+            let name = `electronite-poc-app-macos-x64-${p.version}.dmg`;
             let dest = `${RELEASE_DIR}macos-x64/${name}`;
             mkdirp(path.dirname(dest));
             let cmd = `scripts/osx/makedmg.sh "${p.name}" ${src} ${dest}`;
@@ -649,7 +649,7 @@ gulp.task('release', done => {
       case 'linux':
         if (isLinux && fs.existsSync(BUILD_DIR + p.name + '-linux-x64/')) {
           promises.push(new Promise(function (os, resolve, reject) {
-            let name = `translationCore-linux-x64-${p.version}.zip`;
+            let name = `electronite-poc-app-linux-x64-${p.version}.zip`;
             let dest = `${RELEASE_DIR}linux-x64/${name}`;
             mkdirp.sync(path.dirname(dest));
 

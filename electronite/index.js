@@ -45,7 +45,7 @@ function createMainWindow() {
   console.log('createMainWindow() - creating');
   const windowOptions = {
     icon: './TC_Icon.png',
-    title: 'translationCore',
+    title: 'electronite-poc-app',
     autoHideMenuBar: true,
     minWidth: 1200,
     minHeight: 689,
