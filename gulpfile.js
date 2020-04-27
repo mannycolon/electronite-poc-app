@@ -3,12 +3,12 @@ const gulp = require('gulp');
 const mkdirp = require('mkdirp');
 const argv = require('yargs').argv;
 const fs = require('fs-extra');
-const packager = require('electron-packager');
+const packager = require('electronite-packager');
 const change = require('gulp-change');
 const rimraf = require('rimraf');
 const ncp = require('ncp').ncp;
 const request = require('./scripts/request');
-const CrowdinApi = require('./scripts/CrowdinApi');
+// const CrowdinApi = require('./scripts/CrowdinApi');
 
 function copy(src, dest) {
   return new Promise((resolve, reject) => {
@@ -41,25 +41,25 @@ const getBranchType = () => {
   return 'unknown';
 };
 
-gulp.task('crowdin', () => {
-  if (process.env.CROWDIN_API_KEY && process.env.CROWDIN_PROJECT) {
-    const api = new CrowdinApi({ apiKey: process.env.CROWDIN_API_KEY });
-    const files = { 'English-en_US.json': './src/locale/English-en_US.json' };
-    return api.updateFile(process.env.CROWDIN_PROJECT, files)
-      .then(function (result) {
-        if (result.success) {
-          console.log('Crowdin upload succeeded', result.files);
-        } else {
-          console.log(result);
-        }
-      })
-      .catch(function (err) {
-        console.log('Crowdin error', err);
-      });
-  } else {
-    console.log('Missing Crowdin environment vars. Skipping locale upload.');
-  }
-});
+// gulp.task('crowdin', () => {
+//   if (process.env.CROWDIN_API_KEY && process.env.CROWDIN_PROJECT) {
+//     const api = new CrowdinApi({ apiKey: process.env.CROWDIN_API_KEY });
+//     const files = { 'English-en_US.json': './src/locale/English-en_US.json' };
+//     return api.updateFile(process.env.CROWDIN_PROJECT, files)
+//       .then(function (result) {
+//         if (result.success) {
+//           console.log('Crowdin upload succeeded', result.files);
+//         } else {
+//           console.log(result);
+//         }
+//       })
+//       .catch(function (err) {
+//         console.log('Crowdin error', err);
+//       });
+//   } else {
+//     console.log('Missing Crowdin environment vars. Skipping locale upload.');
+//   }
+// });
 
 /**
  * set developer build properties
@@ -345,6 +345,11 @@ gulp.task('release-win64', () => {
     throw new Error('The --out argument is required.');
   }
 
+  const dist = fs.readdirSync(BUILD_DIR);
+  console.log('====================================');
+  console.log('dist', dist);
+  console.log('====================================');
+
   const buildPath = BUILD_DIR + p.name + '-win32-x64/';
 
   if (!fs.existsSync(buildPath)) {
@@ -545,7 +550,7 @@ gulp.task('release', done => {
     }
 
     // TRICKY: the iss script cannot take the .exe extension on the file name
-    let file = `translationCore-win-x${arch}-${p.version}.setup`;
+    let file = `electronite-poc-app-win-x${arch}-${p.version}.setup`;
     let destDir = `${RELEASE_DIR}win-x${arch}/`;
     mkdirp(destDir);
     let cmd = `${isccPath} scripts/win_installer.iss /DArch=${arch === '64'
@@ -606,7 +611,7 @@ gulp.task('release', done => {
             fs.existsSync(BUILD_DIR + p.name + '-darwin-x64/')) {
           promises.push(new Promise(function (os, resolve, reject) {
             let src = `out/${p.name}-darwin-x64`;
-            let name = `translationCore-macos-x64-${p.version}.dmg`;
+            let name = `electronite-poc-app-macos-x64-${p.version}.dmg`;
             let dest = `${RELEASE_DIR}macos-x64/${name}`;
             mkdirp(path.dirname(dest));
             let cmd = `scripts/osx/makedmg.sh "${p.name}" ${src} ${dest}`;
@@ -644,7 +649,7 @@ gulp.task('release', done => {
       case 'linux':
         if (isLinux && fs.existsSync(BUILD_DIR + p.name + '-linux-x64/')) {
           promises.push(new Promise(function (os, resolve, reject) {
-            let name = `translationCore-linux-x64-${p.version}.zip`;
+            let name = `electronite-poc-app-linux-x64-${p.version}.zip`;
             let dest = `${RELEASE_DIR}linux-x64/${name}`;
             mkdirp.sync(path.dirname(dest));
 

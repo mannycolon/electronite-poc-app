@@ -53,7 +53,7 @@ var template = [
 
 if (process.platform === 'darwin') {
   template.unshift({
-    label: 'translationCore',
+    label: 'electronite-poc-app',
     submenu: [
       {
         accelerator: 'CmdOrCtrl+Q',

@@ -33,6 +33,9 @@ jobs:
 #       env:
 #         GITHUB_CONTEXT: ${{ toJson(github) }}
 #       run: echo "$GITHUB_CONTEXT"
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.12.0'
     - name: Node version
       run: |
         node --version
@@ -75,6 +78,9 @@ jobs:
       CI: true
 
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.12.0'
       - name: Node version
         run: |
           node --version
@@ -110,13 +116,13 @@ jobs:
       - name: npm install
         run: npm ci
 
-      - name: Download latest language names
-        if: env.UPDATE_RESOURCES
-        run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
+      # - name: Download latest language names
+      #   if: env.UPDATE_RESOURCES
+      #   run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
 
-      - name: Update resources
-        if: env.UPDATE_RESOURCES
-        run: npm run update-resources
+      # - name: Update resources
+      #   if: env.UPDATE_RESOURCES
+      #   run: npm run update-resources
 
       - name: build linux
         id: build
@@ -144,7 +150,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
         with:
-          node-version: '8.16.1'
+          node-version: '10.12.0'
 
       - name: Node version
         run: |
@@ -178,13 +184,13 @@ jobs:
       - name: npm install
         run: npm ci
 
-      - name: Download latest language names
-        if: env.UPDATE_RESOURCES
-        run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
+      # - name: Download latest language names
+      #   if: env.UPDATE_RESOURCES
+      #   run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
 
-      - name: Update resources
-        if: env.UPDATE_RESOURCES
-        run: npm run update-resources
+      # - name: Update resources
+      #   if: env.UPDATE_RESOURCES
+      #   run: npm run update-resources
 
       - name: build windows
         run: |
@@ -238,7 +244,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
         with:
-          node-version: '8.16.1'
+          node-version: '10.12.0'
 
       - name: Node version
         run: |
@@ -275,13 +281,13 @@ jobs:
       - name: npm install
         run: npm ci
 
-      - name: Download latest language names
-        if: env.UPDATE_RESOURCES
-        run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
+      # - name: Download latest language names
+      #   if: env.UPDATE_RESOURCES
+      #   run: curl https://td.unfoldingword.org/exports/langnames.json > src/assets/langnames.json
 
-      - name: Update resources
-        if: env.UPDATE_RESOURCES
-        run: npm run update-resources
+      # - name: Update resources
+      #   if: env.UPDATE_RESOURCES
+      #   run: npm run update-resources
 
       - name: build macOS
         id: build
