@@ -12,3 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: Padauk;
+  font-weight: normal;
+  src: url(./fonts/Padauk-Regular.woff);
+}
+
+@font-face {
+  font-family: Padauk;
+  font-weight: bold;
+  src: url(./fonts/Padauk-Bold.woff);
+}
+
+@font-face {
+  font-family: PadaukBook;
+  font-weight: normal;
+  src: url(./fonts/PadaukBook-Regular.woff);
+}
+
+@font-face {
+  font-family: PadaukBook;
+  font-weight: bold;
+  src: url(./fonts/PadaukBook-Bold.woff);
+}
