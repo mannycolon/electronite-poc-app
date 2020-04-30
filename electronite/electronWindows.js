@@ -96,7 +96,7 @@ function createWindow(windowId, options = {}) {
   const window = defineWindow(windowId, options);
 
   if (IS_DEVELOPMENT) {
-    window.loadURL('http://localhost:3000');
+    window.loadURL('https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_fontdemo');
 
     // Install Dev Tools
     try {
