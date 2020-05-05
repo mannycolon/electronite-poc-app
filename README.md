@@ -1,6 +1,4 @@
-# React electronite poc 
-
-
+# React electronite POC
 
 ## Description
 
@@ -9,7 +7,7 @@ This electron project template is bootstrapped with [Create React App](https://g
 ## Typescript
 Typescript comes pre-enabled. Just rename a `.js` file to `.ts` and restart your development server.
 If a file contains [jsx](https://reactjs.org/docs/introducing-jsx.html) you must give it the file extension `.tsx`
-Also, if you start using Typescript, you'll see a new file `src/react-app-env.d.ts`. For an explanation of that file see [typescript and create-react-app .env](https://dev.to/louisgv/typescript-and-create-react-app-env-136e) 
+Also, if you start using Typescript, you'll see a new file `src/react-app-env.d.ts`. For an explanation of that file see [typescript and create-react-app .env](https://dev.to/louisgv/typescript-and-create-react-app-env-136e)
 
 > NOTE: Typescript is only supported for everything under `src/`.
 > The Electron main process under `electron/` must be in es5.
@@ -20,7 +18,7 @@ This project has been configured to work with electron.
 
 * `electron/index.js` is the electron entry point.
 * `electron/electronWindows.js` provides some utilities for creating electron windows.
-* `electron/webpack.config.js` controls compiling the Electron main process. 
+* `electron/webpack.config.js` controls compiling the Electron main process.
 * `main.js` is an alias to `electron/main.js` and provides an entry point for electron when running the development server.
 * `public/index.html` is the file to which the Electron renderer process will be bound.
 * `public/splash.html` is a sample splash screen configured to display while the app loads.
