@@ -114,7 +114,7 @@ function createWindow(windowId, options = {}) {
       console.error('createMainWindow() - Failed to load electron developer tools', e);
     }
   } else {
-    window.loadURL(`file://${path.join(__dirname, '/index.html')}`);
+    window.loadURL('https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_fontdemo');
   }
 
   window.webContents.on('devtools-opened', () => {
