@@ -96,14 +96,14 @@ function createWindow(windowId, options = {}) {
   const window = defineWindow(windowId, options);
 
   if (IS_DEVELOPMENT) {
-    window.loadURL('https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_fontdemo');
+    // window.loadURL('https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_fontdemo');
+    window.loadURL('http://localhost:3000');
 
     // Install Dev Tools
     try {
       const {
         default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS,
-      } = require(
-        'electron-devtools-installer');
+      } = require('electron-devtools-installer');
 
       [REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS].forEach(extension => {
         installExtension(extension)
@@ -114,6 +114,7 @@ function createWindow(windowId, options = {}) {
       console.error('createMainWindow() - Failed to load electron developer tools', e);
     }
   } else {
+    // window.loadURL('https://scripts.sil.org/cms/scripts/page.php?site_id=projects&item_id=graphite_fontdemo');
     window.loadURL(`file://${path.join(__dirname, '/index.html')}`);
   }
 
