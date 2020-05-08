@@ -26,6 +26,8 @@
 .padauk-text {
   font-family: Padauk, sans-serif;
   font-size: 150%;
+  font-feature-settings: "wtri=1";
+  font-feature-settings: "wtri" 1;
 }
 
 @keyframes App-logo-spin {
