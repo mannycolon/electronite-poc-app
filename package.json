@@ -40,7 +40,7 @@
     "react-dom": "16.8.6",
     "react-localize-redux": "^3.5.3",
     "react-redux": "^5.1.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "redux": "^3.7.2",
     "redux-batched-actions": "^0.4.1",
     "redux-logger": "^3.0.6",
